@@ -1,0 +1,10 @@
+{
+    "system": "You are a helpful AI assistant.",
+    "user": "Answer with a single word. A set consists of the following character sequences: {\"$0$\", \"$1$\", \"$2$\", \"$3$\"}\nDoes this set contain the character sequence \"$4$\"?",
+    "target": "No",
+    "correct": "Yes",
+    "n_words": 5,
+    "query_slot": 4,
+    "set_slots": [0, 1, 2, 3],
+    "mirror_slot": [0, 4]
+}
