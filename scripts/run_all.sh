@@ -13,11 +13,6 @@ models=(
     mistralai/Mistral-Small-24B-Instruct-2501
 )
 
-prompts=(
-    set_containment__target_fn_01.json
-    set_containment__target_fp_01.json
-)
-
 # sanity check
 for model in "${models[@]}"; do
     bash scripts/00_run__sanity_check.sh "$model"
@@ -36,18 +31,4 @@ done
 # search (4 permutations)
 for model in "${models[@]}"; do
     bash scripts/02_run__greedy.sh "$model" 4
-done
-
-# transferability
-for model in "${models[@]}"; do
-    for source in results/greedy results/baseline; do
-        bash scripts/03_run__transfer.sh "$model" "$source"
-    done
-done
-
-# word scan
-for model in "${models[@]}"; do
-    for prompt in "${prompts[@]}"; do
-        bash scripts/04_run__word_scan.sh "$model" "$prompt"
-    done
 done
